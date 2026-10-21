@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NBG Coaching — Results & Booking</title>
+<meta name="description" content="Real client results from NBG Coaching. Book a free consult with Nick Dosh, PNBA pro and natural athlete.">
+<link rel="icon" href="img/nbg-logo.webp">
+<meta property="og:title" content="NBG Coaching — Real clients. Real results.">
+<meta property="og:description" content="Watch real client results, then book a free consult with Nick Dosh.">
+<meta property="og:image" content="https://start.nickxlifts.com/img/og.jpg">
+<meta property="og:url" content="https://start.nickxlifts.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Videos, posters and logo are copies of the ones on nickxlifts.com. */
+  :root {
+    --bg: #0a0a0b;
+    --surface: #141416;
+    --surface-2: #1c1c20;
+    --line: #2a2a30;
+    --text: #f4f4f5;
+    --muted: #a1a1aa;
+    --accent: #7c2fd6;
+    --accent-hi: #9b5cf0;
+    --teal: #3fd0c9;
+    --radius: 16px;
+    --display: "Anton", "Arial Narrow", sans-serif;
+    --body: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; }
+  .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--teal);
+  }
+  h1, h2 {
+    font-family: var(--display); font-weight: 400; text-transform: uppercase;
+    letter-spacing: .01em; line-height: .95; margin: 0;
+  }
+  h1 { font-size: clamp(44px, 11vw, 88px); }
+  h2 { font-size: clamp(32px, 7vw, 56px); }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 52px; padding: 0 14px; border-radius: 10px; white-space: nowrap;
+    font: 600 14px/1 var(--body); letter-spacing: .04em; text-transform: uppercase;
+    text-decoration: none; border: 1px solid transparent; cursor: pointer;
+    transition: background .15s, border-color .15s, transform .15s;
+  }
+  .btn:active { transform: scale(.98); }
+  .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 8px 30px -8px rgba(124,47,214,.7); }
+  .btn-primary:hover { background: var(--accent-hi); }
+  .btn-ghost { border-color: var(--line); color: var(--text); background: rgba(255,255,255,.03); }
+  .btn-ghost:hover { border-color: #4a4a52; }
+
+  /* Header */
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 0;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand img { width: 36px; height: 36px; border-radius: 50%; }
+  .brand span { font-family: var(--display); font-size: 20px; letter-spacing: .04em; }
+  .ig { display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center;
+        border-radius: 50%; border: 1px solid var(--line); color: var(--muted); }
+  .ig:hover { color: var(--text); }
+
+  /* Hero */
+  .hero { padding: 12px 0 8px; position: relative; }
+  .hero::before {
+    content: ""; position: absolute; inset: -80px -16px auto; height: 420px; z-index: -1;
+    background: radial-gradient(ellipse 60% 50% at 30% 50%, rgba(124,47,214,.35), transparent);
+  }
+  .hero h1 { margin: 10px 0 12px; }
+  .hero h1 em { font-style: normal; color: var(--accent-hi); }
+  .hero p { color: var(--muted); margin: 0 0 18px; max-width: 34em; }
+  .creds { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+  .creds li { list-style: none; display: flex; align-items: center; gap: 6px; }
+  .creds li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+  .creds { padding: 0; margin-top: 0; }
+  .cta-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  /* Reels */
+  section { padding: 40px 0; }
+  .sec-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+  .sec-head p { color: var(--muted); margin: 8px 0 0; }
+  .reels {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 62%;
+    gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 0 16px 8px; margin: 0 -16px; scrollbar-width: none;
+  }
+  .reels::-webkit-scrollbar { display: none; }
+  .reel {
+    position: relative; scroll-snap-align: start; aspect-ratio: 9 / 16;
+    border-radius: var(--radius); overflow: hidden; background: var(--surface);
+    border: 1px solid var(--line); cursor: pointer; padding: 0; color: inherit; text-align: left;
+    font: inherit;
+  }
+  .reel img, .reel video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .reel::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.85) 0%, rgba(0,0,0,0) 45%);
+  }
+  .reel .meta { position: absolute; left: 14px; right: 14px; bottom: 14px; z-index: 1; }
+  .reel .name { display: block; font-family: var(--display); font-size: 26px; text-transform: uppercase; line-height: 1; }
+  .reel .tag { display: block; font-size: 13px; color: #d4d4d8; margin-top: 4px; }
+  .reel .dur {
+    position: absolute; top: 12px; left: 12px; z-index: 1; font-size: 12px; font-weight: 600;
+    background: rgba(0,0,0,.6); padding: 4px 8px; border-radius: 999px; backdrop-filter: blur(4px);
+  }
+  .reel .play {
+    position: absolute; top: 50%; left: 50%; z-index: 1; width: 60px; height: 60px; margin: -30px 0 0 -30px;
+    border-radius: 50%; background: rgba(255,255,255,.92); display: grid; place-items: center;
+    transition: transform .2s;
+  }
+  .reel:hover .play { transform: scale(1.08); }
+  .reel .play svg { margin-left: 4px; }
+  .reels.small { grid-auto-columns: 44%; }
+  .reels.small .name { font-size: 20px; }
+  .reels.small .play { width: 44px; height: 44px; margin: -22px 0 0 -22px; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line);
+           border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .stat { background: var(--surface); padding: 18px 16px; }
+  .stat b { display: block; font-family: var(--display); font-weight: 400; font-size: 40px; line-height: 1; }
+  .stat span { font-size: 13px; color: var(--muted); }
+
+  /* Quotes */
+  .quotes { display: grid; gap: 12px; }
+  .quote { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; margin: 0; }
+  .quote p { margin: 0 0 14px; font-size: 17px; }
+  .quote p::before { content: "“"; color: var(--accent-hi); font-family: var(--display); font-size: 28px; margin-right: 4px; line-height: 0; vertical-align: -6px; }
+  .quote cite { font-style: normal; font-size: 14px; color: var(--muted); }
+  .quote cite b { color: var(--text); font-weight: 600; }
+
+  /* Booking */
+  .book { background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+          border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .book-grid { display: grid; gap: 24px; }
+  .steps { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 14px; }
+  .steps li { display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: start; }
+  .steps .n { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line);
+              display: grid; place-items: center; font-weight: 700; font-size: 13px; color: var(--teal); }
+  .steps b { display: block; }
+  .steps span { color: var(--muted); font-size: 14px; }
+  .calendly-inline-widget { min-width: 280px; height: 700px; border-radius: var(--radius); overflow: hidden;
+                            background: var(--surface); border: 1px solid var(--line); }
+  .book-alt { margin-top: 14px; font-size: 14px; color: var(--muted); text-align: center; }
+
+  /* Final CTA */
+  .final { text-align: center; padding: 56px 0 120px; }
+  .final p { color: var(--muted); max-width: 30em; margin: 12px auto 22px; }
+  .final .cta-row { max-width: 440px; margin: 0 auto; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding-bottom: 100px; }
+
+  /* Sticky mobile CTA */
+  .sticky {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(10,10,11,.92); border-top: 1px solid var(--line);
+    transform: translateY(110%); transition: transform .25s ease;
+  }
+  .sticky.show { transform: none; }
+  .sticky .btn { width: 100%; }
+
+  /* Video modal */
+  .modal {
+    position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,.92);
+    display: none; align-items: center; justify-content: center; padding: 16px;
+  }
+  .modal.open { display: flex; }
+  .modal video { max-height: 86vh; max-width: 100%; border-radius: 12px; background: #000; }
+  .modal-close {
+    position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%;
+    border: 1px solid #3f3f46; background: rgba(0,0,0,.6); color: #fff; font-size: 22px; cursor: pointer;
+  }
+  .modal-cta { position: absolute; bottom: calc(16px + env(safe-area-inset-bottom)); left: 16px; right: 16px;
+               display: flex; justify-content: center; }
+
+  @media (min-width: 720px) {
+    .reels { grid-auto-columns: calc((100% - 36px) / 4); margin: 0; padding: 0 0 8px; }
+    .reels.small { grid-auto-columns: calc((100% - 36px) / 4); }
+    .stats { grid-template-columns: repeat(4, 1fr); }
+    .quotes { grid-template-columns: repeat(3, 1fr); }
+    .cta-row { display: flex; }
+    .hero { padding: 40px 0 16px; }
+    .sticky { display: none; }
+    .final { padding-bottom: 72px; }
+    footer { padding-bottom: 32px; }
+  }
+  @media (min-width: 960px) {
+    .book-grid { grid-template-columns: 1fr 1.4fr; gap: 48px; align-items: start; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://www.nickxlifts.com/">
+      <img src="img/nbg-logo.webp" alt="">
+      <span>NBG COACHING</span>
+    </a>
+    <a class="ig" href="https://www.instagram.com/nickxlifts/" aria-label="Instagram">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+    </a>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">Online physique coaching · Nick Dosh</div>
+    <h1>Real clients.<br><em>Real results.</em></h1>
+    <p>Watch what coaching with NBG actually looks like — then grab a free 1-on-1 consult with Nick.</p>
+    <ul class="creds">
+      <li>PNBA Pro</li>
+      <li>100% natural</li>
+      <li>Fully online</li>
+    </ul>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#book">Book free consult</a>
+      <a class="btn btn-ghost" href="https://www.nickxlifts.com/apply">Apply now</a>
+    </div>
+  </div>
+</div>
+
+<section id="results">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">In their own words</div>
+        <h2>Straight from the roster</h2>
+      </div>
+    </div>
+    <div class="reels" id="testimonials"></div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><b>8+</b><span>Years under the bar</span></div>
+    <div class="stat"><b>6</b><span>Shows competed</span></div>
+    <div class="stat"><b>40+</b><span>Clients coached</span></div>
+    <div class="stat"><b>&lt;24h</b><span>Check-in response</span></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="quotes">
+      <figure class="quote">
+        <p>In a few short months at twice a week, Nick has shaped my body and mind — shedding 23 pounds and building more muscle.</p>
+        <cite><b>Frank</b> · Age 74 · Down 23 lbs</cite>
+      </figure>
+      <figure class="quote">
+        <p>He has helped me accomplish things I honestly wasn't sure I could accomplish at this stage of my life.</p>
+        <cite><b>Fred</b> · Age 77 · 6 months</cite>
+      </figure>
+      <figure class="quote">
+        <p>Without his coaching I wouldn't have gotten to the stage in the condition I did.</p>
+        <cite><b>Jacob</b> · Contest prep</cite>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Under the bar</div>
+        <h2>Form we actually coach</h2>
+        <p>Real client sets, reviewed on every check-in.</p>
+      </div>
+    </div>
+    <div class="reels small" id="lifts"></div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div>
+      <div class="eyebrow">Free · No pressure</div>
+      <h2>Book your free consult</h2>
+      <ol class="steps">
+        <li><span class="n">01</span><div><b>Pick a time</b><span>Choose a slot that works for you below.</span></div></li>
+        <li><span class="n">02</span><div><b>Talk it through</b><span>Where you are, where you want to be, and whether we're the right fit.</span></div></li>
+        <li><span class="n">03</span><div><b>Get your plan</b><span>Custom training and nutrition built around your schedule and food you actually eat.</span></div></li>
+      </ol>
+    </div>
+    <div>
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/nbgcoachingllc/coaching-consultation?hide_gdpr_banner=1&background_color=141416&text_color=f4f4f5&primary_color=7c2fd6"></div>
+      <div class="book-alt">Calendar not loading? <a href="https://calendly.com/nbgcoachingllc/coaching-consultation">Open booking page</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap final">
+  <div class="eyebrow">Limited coaching spots</div>
+  <h2>Stop guessing. Start building.</h2>
+  <p>Nick caps his roster so every check-in gets real attention. Spots open as clients graduate.</p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="#book">Book free consult</a>
+    <a class="btn btn-ghost" href="https://www.nickxlifts.com/apply">Apply now</a>
+  </div>
+</div>
+
+<footer class="wrap">© NBG Coaching LLC · <a href="https://www.nickxlifts.com/">nickxlifts.com</a></footer>
+
+<div class="sticky" id="sticky"><a class="btn btn-primary" href="#book">Book free consult</a></div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Client video">
+  <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+  <video id="modalVideo" controls playsinline></video>
+  <div class="modal-cta"><a class="btn btn-primary" href="#book" id="modalBook">Book free consult</a></div>
+</div>
+
+<script>
+  const ASSET = "videos/";
+
+  const testimonials = [
+    { file: "testimonial-hannah",    name: "Hannah",    tag: "Client",        dur: "0:10" },
+    { file: "testimonial-camden",    name: "Camden",    tag: "Client",        dur: "0:18" },
+    { file: "testimonial-augustine", name: "Augustine", tag: "Client",        dur: "0:35" },
+    { file: "testimonial-fred",      name: "Fred",      tag: "Age 77",        dur: "0:57" },
+    { file: "testimonial-frank",     name: "Frank",     tag: "Age 74 · −23 lbs", dur: "1:16" },
+    { file: "testimonial-jacob",     name: "Jacob",     tag: "Contest prep",  dur: "3:18" },
+  ];
+  const lifts = [
+    { file: "lift-frank-deadlift",            name: "Frank",     tag: "Deadlift",        dur: "0:59" },
+    { file: "lift-augustine-tricep-pushdown", name: "Augustine", tag: "Tricep pushdown", dur: "0:11" },
+    { file: "lift-camden-rdl",                name: "Camden",    tag: "RDL",             dur: "0:08" },
+    { file: "lift-hannah-lunges",             name: "Hannah",    tag: "Lunges",          dur: "0:07" },
+  ];
+
+  const playIcon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="#0a0a0b"><path d="M6 4l14 8-14 8z"/></svg>';
+
+  function render(el, items) {
+    el.innerHTML = items.map((v, i) => `
+      <button class="reel" data-src="${ASSET}${v.file}.mp4" aria-label="Play ${v.name}'s video">
+        <img src="${ASSET}${v.file}-poster.webp" alt="" loading="${i < 2 ? "eager" : "lazy"}">
+        <span class="dur">${v.dur}</span>
+        <span class="play">${playIcon}</span>
+        <span class="meta"><span class="name">${v.name}</span><span class="tag">${v.tag}</span></span>
+      </button>`).join("");
+  }
+  render(document.getElementById("testimonials"), testimonials);
+  render(document.getElementById("lifts"), lifts);
+
+  // Video modal
+  const modal = document.getElementById("modal");
+  const mv = document.getElementById("modalVideo");
+  function closeModal() { mv.pause(); mv.removeAttribute("src"); mv.load(); modal.classList.remove("open"); document.body.style.overflow = ""; }
+  document.addEventListener("click", e => {
+    const r = e.target.closest(".reel");
+    if (!r) return;
+    mv.src = r.dataset.src;
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+    mv.play().catch(() => {});
+  });
+  document.getElementById("modalClose").addEventListener("click", closeModal);
+  document.getElementById("modalBook").addEventListener("click", closeModal);
+  modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); });
+
+  // Sticky CTA: show after the hero, hide while the booking section is on screen
+  const sticky = document.getElementById("sticky");
+  const hero = document.querySelector(".hero");
+  const book = document.getElementById("book");
+  let pastHero = false, inBook = false;
+  const sync = () => sticky.classList.toggle("show", pastHero && !inBook);
+  new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; sync(); }).observe(hero);
+  new IntersectionObserver(([e]) => { inBook = e.isIntersecting; sync(); }).observe(book);
+</script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
